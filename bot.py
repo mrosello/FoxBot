@@ -13,12 +13,14 @@ MACD_SLOWPERIOD = 26
 MACD_SIGNALPERIOD = 9
 
 TRADE_SYMBOL = 'ADABTC'
-TRADE_QUANTITY = 13
-TRADE_PERIOD = '3m'
+TRADE_QUANTITY = 4
+TRADE_PERIOD = '5m'
 
 SOCKET = "wss://stream.binance.com:9443/ws/" + TRADE_SYMBOL.lower() + "@kline_" + TRADE_PERIOD
 
 # positions: 0 = not i position, 1 = half position, > 2 = full position
+
+position_discretization = 4
 current_position = 0
 uptrend = []
 order_completed = []
@@ -91,7 +93,7 @@ def on_message(ws,message):
 
         if last_rsi < RSI_OVERSOLD:
             print('Oversold! Buy! Buy! Buy!')
-            if current_position < 2:
+            if current_position < position_discretization:
                 order_succeeded = order(SIDE_BUY, TRADE_QUANTITY, TRADE_SYMBOL)
                 if order_succeeded:
                     current_position = current_position + 1
