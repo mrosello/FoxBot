@@ -1,5 +1,19 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>This is a test</h1>
+<h1>Balance</h1>
+    <table>
+        {% for balance in my_balance %}
+            {% if balance.free != '0.00000000' and balance.free != '0.00' %}
+            <tr>
+                <td>
+                    {{ balance.asset }}
+                </td>
+                <td>
+                    {{ balance.free }}
+                </td>
+            </tr>
+            {% endif %}
+        {% endfor %}
+    </table>
 {% endblock %}
