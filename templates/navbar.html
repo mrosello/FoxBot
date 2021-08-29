@@ -1,6 +1,12 @@
-<nav>
+{% load bootstrap5 %}
 
-    <a href="#">Analytics</a>
-    <a href="#">Trading</a>
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    
+    <a class="nav-link active" href="#">Dashboard</a>
+    <a class="nav-link active" href="#">Analytics</a>
+    <a class="nav-link active" href="#">Trading</a>
 
 </nav>
