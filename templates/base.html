@@ -1,19 +1,32 @@
+{% load bootstrap5 %}
+{% load static %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
 <!DOCTYPE html>
 <head>
 
-    <meta charset="utf-8">
-    <title>FoxBot</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="apple-touch-icon" sizes="76x76" href="/static/assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="/static/assets/img/favicon.png">
+
+  <title>FoxBot</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="{% static 'assets/css/main.css' %}">
 
 </head>
 
-<body>
-    {% include 'navbar.html' %}
-    <div class="container">
-        <div class="wrapper">
+<body class="g-sidenav-show bg-gray-100">
+    
+    <!-- SideBar -->
+    {% include 'sidebar.html' %}
+    <main class="main-content mt-4 border-radius-lg">
+      
+      {% block content %}{% endblock content %}
   
-          {% block content %}
-          {% endblock %}
-          
-        </div>
-      </div>
+    </main>
+
 </body>
